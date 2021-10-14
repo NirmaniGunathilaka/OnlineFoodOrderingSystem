@@ -10,9 +10,7 @@ Web application for ordering food items via online.
 
 3.[Technologies](#Technologies)
 
-4.[API Methods](#APIMethods)
-
-5.[Setup](#Setup)
+4.[Setup](#Setup)
 
 
 ## General Info
