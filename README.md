@@ -22,7 +22,7 @@ This system provides online food ordering facility to any customer.
 
 ## Technologies
 
-* Frontend - Reactjs
+* Frontend - Reactjs, Material UI
 
 * Backend - Spring Boot
 
@@ -38,6 +38,8 @@ $ npm install
 
 
 ### Frontend
+
+$ cd frontend
 
 $ npm install
 
