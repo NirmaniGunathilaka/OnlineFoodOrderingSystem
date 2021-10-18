@@ -9,6 +9,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Carousel from "./CarouselSlider";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import { createTheme } from "@material-ui/core/styles";
+import { Route } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const theme = createMuiTheme({
   palette: {
