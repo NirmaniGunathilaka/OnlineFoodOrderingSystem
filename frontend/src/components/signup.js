@@ -10,20 +10,20 @@ import Checkbox from '@material-ui/core/Checkbox';
 
 
 const Signup = () => {
-    const paperStyle = { padding: '30px 20px', width: 300, margin: "20px auto" }
+    const paperStyle = { padding:20, width: 300, margin: "0px auto" }
     const headerStyle = { margin: 0 }
-    const avatarStyle = { backgroundColor: 'orange' }
+    const avatarStyle = { backgroundColor: '#36c967' }
     const typoStyle = { fontSize: 13 }
     const marginTop = { marginTop: 10 }
     return (
         <Grid align="left">
-            <Paper elevation={20} style={paperStyle}>
+            <Paper style={paperStyle}>
                 <Grid align="center">
                     <Avatar style={avatarStyle}>
                         <AddCircleOutlineOutlinedIcon />
                     </Avatar>
-                    <h1 style={headerStyle}>Sign Up</h1>
-                    <Typography varient="caption" style={typoStyle}  gutterBottom>Please fill this form to create an account !</Typography>
+                    <h2 style={headerStyle}>Sign Up</h2>
+                    <Typography varient="caption" style={typoStyle} gutterBottom>Please fill this form to create an account !</Typography>
                 </Grid>
                 <form>
                     <TextField fullWidth label='Name' />
@@ -44,7 +44,7 @@ const Signup = () => {
                     </FormControl>
                     <TextField fullWidth label='Contact Number' />
                     <TextField fullWidth label='Password' type="password" />
-                    <TextField fullWidth label='Confirm Password' type="password"/>
+                    <TextField fullWidth label='Confirm Password' type="password" />
                     <FormControlLabel
                         control={<Checkbox name="checkedA" />}
                         label="I accept the terms and conditions."
