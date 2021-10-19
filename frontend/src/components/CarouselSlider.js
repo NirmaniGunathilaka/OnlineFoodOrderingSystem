@@ -5,7 +5,7 @@ import { Carousel } from "react-responsive-carousel";
 const styles = {
   img: {
     width: "100%",
-    height: 520,
+    height: 500,
     objectFit: 'cover'
   },
 };
