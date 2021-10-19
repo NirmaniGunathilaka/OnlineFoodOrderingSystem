@@ -37,14 +37,10 @@ export default function ButtonAppBar() {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h4" component="div" sx={{ flexGrow: 1 }}>
+            <Typography  variant="h4" component="div" sx={{ flexGrow: 1 }}>
               Foodie Hub
             </Typography>
-            <Button
-              size="large"
-              color="inherit"
-              onClick={() => history.push("/signinsignup")}
-            >
+            <Button size="large" color="inherit" onClick={() => history.push("/signinsignup")}>
               Login
             </Button>
           </Toolbar>
