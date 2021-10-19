@@ -7,12 +7,10 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Carousel from "./CarouselSlider";
-import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import { createTheme } from "@material-ui/core/styles";
-import { Route } from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import history from "./history";
 
-const theme = createMuiTheme({
+const theme = createTheme({
   palette: {
     primary: {
       main: "#feb236", // This is an orange looking color
@@ -42,7 +40,9 @@ export default function ButtonAppBar() {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               Online Food Ordering System
             </Typography>
-            <Button color="inherit">Login</Button>
+            <Button color="inherit" onClick={() => history.push("/signinsignup")}>
+              Login
+            </Button>
           </Toolbar>
         </AppBar>
       </Box>

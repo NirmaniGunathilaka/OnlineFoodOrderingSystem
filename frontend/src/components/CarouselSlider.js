@@ -1,5 +1,4 @@
-import React, { Component } from "react";
-import ReactDOM from "react-dom";
+import React from "react";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 
@@ -7,6 +6,7 @@ const styles = {
   img: {
     width: "100%",
     height: 520,
+    objectFit: 'cover'
   },
 };
 
@@ -19,13 +19,13 @@ export default function CarouselSlider() {
       showThumbs={false}
     >
       <div>
-        <img src="assets/f1.jpg" style={styles.img} />
+        <img src="assets/f1.jpg" style={styles.img} alt="food" />
       </div>
       <div>
-        <img src="assets/f3.jpg" style={styles.img} />
+        <img src="assets/f3.jpg" style={styles.img} alt="food" />
       </div>
       <div>
-        <img src="assets/f2.jpg" style={styles.img} />
+        <img src="assets/f2.jpg" style={styles.img} alt="food" />
       </div>
     </Carousel>
   );
