@@ -6,6 +6,7 @@ import Login from "./components/login";
 import SignInSignUp from "./containers";
 import history from "./components/history";
 import Admin from "./components/admin";
+import Customer from "./components/Customer";
 
 const createRoutes = () => {
   return (
@@ -16,6 +17,7 @@ const createRoutes = () => {
         <Route path="/signup" component={Signup} />
         <Route path="/signinsignup" component={SignInSignUp} />
         <Route path="/admin" component={Admin} />
+        <Route path="/customer" component={Customer} />
       </Switch>
     </Router>
   );
