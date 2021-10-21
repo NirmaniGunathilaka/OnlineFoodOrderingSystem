@@ -6,6 +6,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 
+
 const Login = ({ handleChange }) => {
     const paperStyle = { padding: 20, height: '73vh', width: 300, margin: "0px auto" }
     const avatarStyle = { backgroundColor: '#36c967' }
@@ -83,8 +84,6 @@ const Login = ({ handleChange }) => {
                 </Typography>
             </Paper>
         </Grid>
-    )
-
-
-}
+    );
+};
 export default Login;
