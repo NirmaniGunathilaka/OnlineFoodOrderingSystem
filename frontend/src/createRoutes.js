@@ -23,6 +23,7 @@ const createRoutes = () => {
         <Route path="/about" component={About} />
         <Route path="/hotline" component={Hotline} />
         <Route path="/privacy" component={Privacy} />
+      
       </Switch>
     </Router>
   );
