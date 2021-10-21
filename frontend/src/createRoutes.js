@@ -10,6 +10,8 @@ import About from "./components/About";
 import Hotline from "./components/Hotline";
 import Privacy from "./components/Privacy";
 
+import Admin from "./components/admin";
+import Customer from "./components/Customer";
 
 const createRoutes = () => {
   return (
@@ -24,6 +26,8 @@ const createRoutes = () => {
         <Route path="/hotline" component={Hotline} />
         <Route path="/privacy" component={Privacy} />
       
+        <Route path="/admin" component={Admin} />
+        <Route path="/customer" component={Customer} />
       </Switch>
     </Router>
   );
