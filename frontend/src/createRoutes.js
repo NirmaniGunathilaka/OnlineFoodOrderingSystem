@@ -9,9 +9,10 @@ import Feedback from "./components/Feedback";
 import About from "./components/About";
 import Hotline from "./components/Hotline";
 import Privacy from "./components/Privacy";
-
+import Appbar from "./components/Appbar";
 import Admin from "./components/admin";
 import Customer from "./components/Customer";
+
 
 const createRoutes = () => {
   return (
@@ -23,9 +24,9 @@ const createRoutes = () => {
         <Route path="/signinsignup" component={SignInSignUp} />
         <Route path="/feed" component={Feedback} />
         <Route path="/about" component={About} />
-        <Route path="/hotline" component={Hotline} />
+        <Route path="/hotline" render={(props) => <Hotline {...props} />} />
         <Route path="/privacy" component={Privacy} />
-      
+        <Route path="/appbar" component={Appbar} />
         <Route path="/admin" component={Admin} />
         <Route path="/customer" component={Customer} />
       </Switch>
