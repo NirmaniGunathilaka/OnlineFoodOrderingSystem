@@ -16,6 +16,7 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
 import IconButton from '@mui/material/IconButton';
 import TableFooter from '@mui/material/TableFooter';
+import SearchBar from "material-ui-search-bar";
 
 function TablePaginationActions(props) {
   const theme = useTheme();
@@ -98,21 +99,38 @@ function createData(id, name, email, address, contactNo) {
   return { id, name, email, address, contactNo };
 }
 
-const rows = [
+const originalRows = [
   createData(1, 'Amith Perera', 'amith@gmail.com', 'Colombo', '0765567880'),
   createData(2, 'Damith Asanka', 'damith@gmail.com', 'Matara', '0712234560'),
   createData(3, 'Kusal Mendis', 'kusal@gmail.com', 'Piliyandala', '0776678990'),
   createData(4, 'Sanka Dineth', 'sankad@gmail.com', 'Moratuwa', '0763345232'),
   createData(5, 'Nadeemal', 'nadeemal@gmail.com', 'Galle', '0783410080'),
   createData(6, 'Kasuni Gamage', 'kasuni@gmail.com', 'Kandy', '0713420080'),
-  createData(5, 'Ameya Thembe', 'ameya@gmail.com', 'Pune', '0943412080'),
-  createData(6, 'Charith Giragama', 'Charith@gmail.com', 'Colombo', '0713429980'),
+  createData(7, 'Ameya Thembe', 'ameya@gmail.com', 'Pune', '0943412080'),
+  createData(8, 'Charith Giragama', 'Charith@gmail.com', 'Colombo', '0713429980'),
 ];
 
 export default function CustomerList() {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
+  const [rows, setRows] = useState(originalRows);
+  const [searched, setSearched] = useState("");
 
+  const requestSearch = (searchedVal) => {
+    const filteredRows = originalRows.filter((row) => {
+      var result = row.name.toLowerCase().includes(searchedVal.toLowerCase())||
+               row.email.toLowerCase().includes(searchedVal.toLowerCase())||
+               row.address.toLowerCase().includes(searchedVal.toLowerCase())||            
+               row.contactNo.toLowerCase().includes(searchedVal.toLowerCase());
+      return result;
+    });
+    setRows(filteredRows);
+  };
+
+  const cancelSearch = () => {
+    setSearched("");
+    requestSearch(searched);
+  };
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
@@ -126,7 +144,16 @@ export default function CustomerList() {
     setPage(0);
   };
   return (
-    <TableContainer component={Paper} sx={{maxWidth: "60%", margin: "auto"}}>
+    <>
+    <SearchBar
+    autofocus
+    placeholder='Search Customers'
+    style={{maxWidth: 300, marginLeft: '60%', marginBottom: '30px'}}
+    value={searched}
+    onChange={(searchVal) => requestSearch(searchVal)}
+    onCancelSearch={() => cancelSearch()}
+  />
+    <TableContainer component={Paper} sx={{maxWidth: "80%", margin: "auto"}}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -183,5 +210,6 @@ export default function CustomerList() {
         </TableFooter>
       </Table>
     </TableContainer>
+    </>
   );
 }
