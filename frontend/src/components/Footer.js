@@ -19,17 +19,12 @@ export default function Footer() {
                 Help
               </Box>
               <Box>
-                <Link href="/" color="inherit">
+                <Link href="/hotline" color="inherit">
                   Contact
                 </Link>
               </Box>
               <Box>
-                <Link href="/" color="inherit">
-                  Support
-                </Link>
-              </Box>
-              <Box>
-                <Link href="/" color="inherit">
+                <Link href="/privacy" color="inherit">
                   Privacy
                 </Link>
               </Box>
@@ -59,12 +54,12 @@ export default function Footer() {
                 About
               </Box>
               <Box>
-                <Link href="/" color="inherit">
+                <Link href="/about" color="inherit">
                   About Us
                 </Link>
               </Box>
               <Box>
-                <Link href="/" color="inherit">
+                <Link href="/feed" color="inherit">
                   Feedback
                 </Link>
               </Box>

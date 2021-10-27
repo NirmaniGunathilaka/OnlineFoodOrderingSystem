@@ -62,8 +62,8 @@ const styles = {
       container: {
         paddingRight: "15px",
         paddingLeft: "15px",
-        marginRight: "auto",
-        marginLeft: "auto",
+        marginRight: "30px",
+        marginLeft: "300px",
       },
       map: {
         marginTop: "70px",

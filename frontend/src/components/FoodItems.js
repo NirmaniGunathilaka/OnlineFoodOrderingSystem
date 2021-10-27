@@ -35,12 +35,12 @@ export default function FoodItems() {
             className={classes.gridContainer}
             justify="center"
         >
-            <Grid item xs={12} sm={6} md={4}>
-                <Card sx={{ maxWidth: 345 }}>
+            <Grid item xs={12} sm={6} md={4} item style={{ display: 'flex' }}>
+                <Card sx={{ maxWidth: 345 }} style={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'column' }}>
                     <CardMedia
                         component="img"
                         height="140"
-                        image="/images/pizza.jpg"
+                        image="/images/Piz.jpg"
                         alt="pizza"
                     />
                     <CardContent>
@@ -52,103 +52,122 @@ export default function FoodItems() {
                         </Typography>
                     </CardContent>
                     <CardActions style={{ justifyContent: 'center' }}>
-                        <Button align="center" size="small">Add to cart</Button>
+                        <Button align="center" size="small">View Catalog</Button>
 
                     </CardActions>
                 </Card>
 
             </Grid>
-            <Grid item xs={12} sm={6} md={4}>
-                <Card sx={{ maxWidth: 345 }}>
+            <Grid item xs={12} sm={6} md={4} item style={{ display: 'flex' }}>
+                <Card sx={{ maxWidth: 345 }} >
                     <CardMedia
                         component="img"
                         height="140"
-                        image="/images/pizza.jpg"
-                        alt="pizza"
+                        image="/images/pasta.jpg"
+                        alt="Pasta"
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
-                            Lizard
+                            Pasta
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                            Lizards are a widespread group of squamate reptiles, with over 6,000
-                            species, ranging across all continents except Antarctica
+                            Simple, classic pasta recipes are always a crowd pleaser and naturally budget friendly
                         </Typography>
                     </CardContent>
-                    <CardActions style={{ justifyContent: 'center' }}>
-                        <Button align="center" size="small">Add to cart</Button>
+                    <CardActions style={{ justifyContent: 'center', align: 'center', display: 'flex', alignSelf: 'flex-end' }}>
+                        <Button align="center" size="small">View Catalog</Button>
 
                     </CardActions>
                 </Card>
 
             </Grid>
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid item xs={12} sm={6} md={4} item style={{ display: 'flex' }}>
                 <Card sx={{ maxWidth: 345 }}>
                     <CardMedia
                         component="img"
                         height="140"
-                        image="/images/pizza.jpg"
-                        alt="pizza"
+                        image="/images/burger.jpg"
+                        alt="Burger"
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
-                            Lizard
+                            Burger
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                            Lizards are a widespread group of squamate reptiles, with over 6,000
-                            species, ranging across all continents except Antarctica
+                            A hamburger is a food, typically considered a sandwich, consisting of one or more cooked patties
                         </Typography>
                     </CardContent>
                     <CardActions style={{ justifyContent: 'center' }}>
-                        <Button align="center" size="small">Add to cart</Button>
+                        <Button align="center" size="small">View catalog</Button>
 
                     </CardActions>
                 </Card>
 
             </Grid>
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid item xs={12} sm={6} md={4} item style={{ display: 'flex' }}>
                 <Card sx={{ maxWidth: 345 }}>
                     <CardMedia
                         component="img"
                         height="140"
-                        image="/images/pizza.jpg"
-                        alt="pizza"
+                        image="/images/submarine.jpg"
+                        alt="submarine"
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
-                            Lizard
+                            Submarine 
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                            Lizards are a widespread group of squamate reptiles, with over 6,000
-                            species, ranging across all continents except Antarctica
+                            A submarine sandwich, commonly known as a sub, hoagie, hero, Italian sandwich or grinder, is a type of cold or hot sandwich made from a cylindrical bread roll split lengthwise and filled with meats, cheeses, vegetables, and condiments
                         </Typography>
                     </CardContent>
                     <CardActions style={{ justifyContent: 'center' }}>
-                        <Button align="center" size="small">Add to cart</Button>
+                        <Button align="center" size="small">view catalog</Button>
 
                     </CardActions>
                 </Card>
 
             </Grid>
-            <Grid item xs={12} sm={6} md={4}>
+            <Grid item xs={12} sm={6} md={4} item style={{ display: 'flex' }}>
                 <Card sx={{ maxWidth: 345 }}>
                     <CardMedia
                         component="img"
                         height="140"
-                        image="/images/pizza.jpg"
-                        alt="pizza"
+                        image="/images/noodles.jpg"
+                        alt="noodles"
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
-                            Lizard
+                            Noodles
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                            Lizards are a widespread group of squamate reptiles, with over 6,000
-                            species, ranging across all continents except Antarctica
+                        Noodles are a type of food made from unleavened dough which is rolled flat and cut, stretched or extruded, into long strips or strings
                         </Typography>
                     </CardContent>
                     <CardActions style={{ justifyContent: 'center' }}>
-                        <Button align="center" size="small">Add to cart</Button>
+                        <Button align="center" size="small">view catalog</Button>
+
+                    </CardActions>
+                </Card>
+
+            </Grid>
+            <Grid item xs={12} sm={6} md={4} item style={{ display: 'flex' }}>
+                <Card sx={{ maxWidth: 345 }}>
+                    <CardMedia
+                        component="img"
+                        height="140"
+                        image="/images/rice.jpg"
+                        alt="rice"
+                    />
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="div">
+                            Rice
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                        Fried rice is a dish of cooked rice that has been stir-fried in a wok or a frying pan and is usually mixed with other ingredients such as eggs, vegetables, seafood, or meat
+                        </Typography>
+                    </CardContent>
+                    <CardActions style={{ justifyContent: 'center' }}>
+                        <Button align="center" size="small">view catalog</Button>
 
                     </CardActions>
                 </Card>
