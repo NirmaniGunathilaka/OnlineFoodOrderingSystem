@@ -18,6 +18,9 @@ import Typography from '@mui/material/Typography';
 import { Grid } from '@material-ui/core';
 import "../styles.css";
 import { makeStyles } from "@material-ui/core/styles";
+import { Link } from 'react-router-dom';
+
+import history from "./history";
 
 const useStyles = makeStyles({
     gridContainer: {
@@ -114,7 +117,7 @@ export default function FoodItems() {
                     />
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
-                            Submarine 
+                            Submarine
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
                             A submarine sandwich, commonly known as a sub, hoagie, hero, Italian sandwich or grinder, is a type of cold or hot sandwich made from a cylindrical bread roll split lengthwise and filled with meats, cheeses, vegetables, and condiments
@@ -140,7 +143,7 @@ export default function FoodItems() {
                             Noodles
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                        Noodles are a type of food made from unleavened dough which is rolled flat and cut, stretched or extruded, into long strips or strings
+                            Noodles are a type of food made from unleavened dough which is rolled flat and cut, stretched or extruded, into long strips or strings
                         </Typography>
                     </CardContent>
                     <CardActions style={{ justifyContent: 'center' }}>
@@ -151,6 +154,7 @@ export default function FoodItems() {
 
             </Grid>
             <Grid item xs={12} sm={6} md={4} item style={{ display: 'flex' }}>
+
                 <Card sx={{ maxWidth: 345 }}>
                     <CardMedia
                         component="img"
@@ -163,18 +167,19 @@ export default function FoodItems() {
                             Rice
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                        Fried rice is a dish of cooked rice that has been stir-fried in a wok or a frying pan and is usually mixed with other ingredients such as eggs, vegetables, seafood, or meat
+                            Fried rice is a dish of cooked rice that has been stir-fried in a wok or a frying pan and is usually mixed with other ingredients such as eggs, vegetables, seafood, or meat
                         </Typography>
                     </CardContent>
-                    <CardActions style={{ justifyContent: 'center' }}>
-                        <Button align="center" size="small">view catalog</Button>
+                    <CardActions style={{ justifyContent: 'center' }} >
+                        <Button onClick={() => history.push("/pizza")} align="center" size="small">view catalog</Button>
 
                     </CardActions>
                 </Card>
 
-            </Grid>
 
-        </Grid>
+            </Grid >
+
+        </Grid >
 
     );
 }

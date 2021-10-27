@@ -3,6 +3,7 @@ import Sidebar from "./sidebar";
 import Deals from "./Deals";
 import FoodItems from "./FoodItems";
 import Cart from "./Cart";
+//import pizza from "./Pizza"
 
 import Dashboard from "@material-ui/icons/Dashboard";
 import FoodIcon from '@mui/icons-material/Fastfood';
@@ -43,6 +44,7 @@ const dashboardRoutes = [
     component: Cart,
     layout: "/customer",
   },
+ 
 ]
 
 const switchRoutes = (
