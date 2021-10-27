@@ -55,7 +55,7 @@ export default function FoodItems() {
                         </Typography>
                     </CardContent>
                     <CardActions style={{ justifyContent: 'center' }}>
-                        <Button align="center" size="small">View Catalog</Button>
+                        <Button onClick={() => history.push("/pizza")} align="center" size="small">View Catalog</Button>
 
                     </CardActions>
                 </Card>
@@ -171,7 +171,7 @@ export default function FoodItems() {
                         </Typography>
                     </CardContent>
                     <CardActions style={{ justifyContent: 'center' }} >
-                        <Button onClick={() => history.push("/pizza")} align="center" size="small">view catalog</Button>
+                        <Button  align="center" size="small">view catalog</Button>
 
                     </CardActions>
                 </Card>
