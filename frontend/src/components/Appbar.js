@@ -19,7 +19,7 @@ export default function Appbar() {
       },
       secondary: {
         main: "#ffcc80", //Another orange-ish color
-      },
+      },  
     },
     fontFamily: "font", // as an aside, highly recommend importing roboto font for Material UI projects! Looks really nice
   });
@@ -105,7 +105,7 @@ export default function Appbar() {
                 onClose={handleClose}
               >
                 <MenuItem
-                  onClick={handleClose}
+                  // onClick={handleClose}
                   onClick={() => handleClick("/profile")}
                 >
                   My Profile

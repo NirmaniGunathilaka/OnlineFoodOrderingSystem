@@ -14,16 +14,12 @@ import Customer from "./components/Customer";
 import Profile from "./components/Profile";
 import Footer from "./components/Footer";
 import Appbar from "./components/Appbar";
-import Pizza from "./components/pizza"
-
+import Pizza from "./components/pizza";
 
 const createRoutes = () => {
   return (
-  
-    
-
     <Router forceRefresh={true} history={history}>
-        <Appbar />
+      <Appbar />
       <Switch>
         <Route exact path="/" component={Home} />
         <Route path="/login" component={Login} />

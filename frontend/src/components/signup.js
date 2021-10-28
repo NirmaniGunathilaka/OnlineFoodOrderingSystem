@@ -14,7 +14,6 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import Checkbox from "@material-ui/core/Checkbox";
-import { makeStyles } from "@material-ui/core/styles";
 
 const Signup = () => {
   const paperStyle = { padding: 20, width: 300, margin: "0px auto" };
