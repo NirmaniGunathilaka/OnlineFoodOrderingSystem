@@ -11,6 +11,10 @@ import styles from "../assets/sidebarStyle";
 import { makeStyles } from "@material-ui/core/styles";
 import classNames from "classnames";
 import Hidden from "@material-ui/core/Hidden";
+import Collapse from "@material-ui/core/Collapse";
+import ExpandLessIcon from "@material-ui/icons/ExpandLess";
+import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+
 
 
 const useStyles = makeStyles(styles);
@@ -31,6 +35,7 @@ export default function Sidebar(props) {
         listItemClasses = classNames({
           [" " + classes[color]]: activeRoute(prop.layout + prop.path),
         });
+
 
         const whiteFontClasses = classNames({
           [" " + classes.whiteFont]: activeRoute(prop.layout + prop.path),

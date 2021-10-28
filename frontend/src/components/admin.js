@@ -53,7 +53,26 @@ const switchRoutes = (
   </Switch>
 );
 
-const styles = {
+// const styles = {
+const drawerWidth = 260;
+const styles = (theme) => ({
+  wrapper: {
+    position: "relative",
+    top: "0",
+    height: "100vh",
+  },
+  mainPanel: {
+    [theme.breakpoints.up("md")]: {
+      width: `calc(100% - ${drawerWidth}px)`,
+    },
+    overflow: "auto",
+    position: "relative",
+    float: "right",
+    transition: "all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1)",
+    maxHeight: "100%",
+    width: "100%",
+    overflowScrolling: "touch",
+  },
   content: {
     marginTop: "70px",
     padding: "30px 15px",
@@ -68,7 +87,7 @@ const styles = {
   map: {
     marginTop: "70px",
   },
-};
+});
 
 const useStyles = makeStyles(styles);
 
@@ -85,7 +104,7 @@ function Admin(...rest) {
   };
 
   return (
-    <div>
+    <div className={classes.wrapper}>
       <Sidebar
         routes={dashboardRoutes}
         sidebarImage={sidebarImage}
@@ -94,14 +113,17 @@ function Admin(...rest) {
         color={color}
         {...rest}
       />
-      {getRoute() ? (
-        <div className={classes.content}>
-          <div className={classes.container}>{switchRoutes}</div>
-        </div>
-      ) : (
-        <div className={classes.map}>{switchRoutes}</div>
-      )}
+      <div className={classes.mainPanel}>
+        {getRoute() ? (
+          <div className={classes.content}>
+            <div className={classes.container}>{switchRoutes}</div>
+          </div>
+        ) : (
+          <div className={classes.map}>{switchRoutes}</div>
+        )}
+      </div>
     </div>
+
   );
 }
 export default Admin;

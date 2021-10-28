@@ -3,6 +3,7 @@ import Sidebar from "./sidebar";
 import Deals from "./Deals";
 import FoodItems from "./FoodItems";
 import Cart from "./Cart";
+//import pizza from "./Pizza"
 
 import Dashboard from "@material-ui/icons/Dashboard";
 import FoodIcon from "@mui/icons-material/Fastfood";
@@ -18,6 +19,16 @@ const dashboardRoutes = [
     icon: FoodIcon,
     component: FoodItems,
     layout: "/customer",
+    items: [
+      {
+        title: "Pizza",
+      },
+
+      {
+        title: "Burger",
+      },
+    ]
+
   },
   {
     path: "/deals",
@@ -33,7 +44,8 @@ const dashboardRoutes = [
     component: Cart,
     layout: "/customer",
   },
-];
+ 
+]
 
 const switchRoutes = (
   <Switch>
@@ -68,13 +80,14 @@ const styles = {
   map: {
     marginTop: "70px",
   },
-};
+}
 
 const useStyles = makeStyles(styles);
 
 function Customer(...rest) {
+
   const classes = useStyles();
-  const [color, setColor] = React.useState("blue");
+  const [color, setColor] = React.useState("orange");
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
