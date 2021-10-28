@@ -7,7 +7,6 @@ import Button from "@mui/material/Button";
 import PropTypes from "prop-types";
 import { CardMedia } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
@@ -27,13 +26,6 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   },
 }));
 
-var cardStyle = {
-  display: 'block',
-  width: '30vw',
-  transitionDuration: '0.3s',
-  height: '45vw'
-}
-
 const style = {
   position: "absolute",
   top: "50%",
@@ -45,13 +37,6 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
-
-const Item = styled(Paper)(({ theme }) => ({
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
 
 const BootstrapDialogTitle = (props) => {
   const { children, onClose, ...other } = props;
@@ -102,7 +87,11 @@ export default function Deals() {
   };
   return (
     <Box mt={-8}>
-      <Button onClick={handleClickOpenModal} variant="outlined" style={{float: "right"}}>
+      <Button
+        onClick={handleClickOpenModal}
+        variant="outlined"
+        style={{ float: "right" }}
+      >
         Add Deals
       </Button>
       <Modal
@@ -115,173 +104,295 @@ export default function Deals() {
           <Typography variant="h6" component="div" gutterBottom>
             Add Deals
           </Typography>
-          <TextField
-            required
-            id="outlined-basic"
-            size="small"
-            label="Name"
-            variant="outlined"
-            fullWidth
-          />
-          <TextField
-            required
-            id="outlined-basic"
-            size="small"
-            label="Description"
-            variant="outlined"
-            fullWidth
-          />
-          <TextField
-           required
-            id="outlined-basic"
-            size="small"
-            label="Price"
-            variant="outlined"
-            fullWidth
-          />
-          <Button variant="contained" size="medium" fullWidth>
-            Add
-          </Button>
+          <Grid container direction={"column"} spacing={2}>
+            <Grid item>
+              <TextField
+                required
+                id="outlined-basic"
+                size="small"
+                label="Name"
+                variant="outlined"
+                fullWidth
+              />
+            </Grid>
+            <Grid item>
+              <TextField
+                required
+                id="outlined-basic"
+                size="small"
+                label="Description"
+                variant="outlined"
+                fullWidth
+              />
+            </Grid>
+            <Grid item>
+              <TextField
+                required
+                id="outlined-basic"
+                size="small"
+                label="Included Food Items"
+                variant="outlined"
+                fullWidth
+              />
+            </Grid>
+            <Grid item>
+              <TextField
+                required
+                id="outlined-basic"
+                size="small"
+                label="Price"
+                variant="outlined"
+                fullWidth
+              />
+            </Grid>
+            <Grid item>
+              <input
+                style={{ display: "none" }}
+                id="contained-button-file"
+                type="file"
+              />
+              <label htmlFor="contained-button-file">
+                <Button
+                  variant="contained"
+                  color="inherit"
+                  component="span"
+                  fullWidth
+                >
+                  Upload a Image
+                </Button>
+              </label>
+            </Grid>
+            <Grid item>
+              <Button variant="contained" size="medium" fullWidth>
+                Add
+              </Button>
+            </Grid>
+          </Grid>
         </Box>
       </Modal>
       <Typography align="center" gutterBottom="true" variant="h5">
         Deals!
       </Typography>
-      <Grid container spacing={10} justify="center" >
+      <Grid
+        container
+        spacing={10}
+        justify="center"
+        alignItems="stretch"
+        alignContent="center"
+      >
         <Grid item xs={6}>
-          <Item>
-            <Card sx={{ maxWidth: 380 }}>
-              <CardMedia
-                component="img"
-                alt="buy 1 get 1"
-                height="140"
-                image="/assets/f1.jpg"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Buy 1 get 1
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Buy one large pizza, another large pizza is free!
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small" onClick={handleClickOpen}>
-                  Order
-                </Button>
-                <BootstrapDialog
+          <Card
+            sx={{
+              maxWidth: 380,
+              minHeight: 340,
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <CardMedia
+              component="img"
+              alt="buy 1 get 1"
+              height="140"
+              image="/assets/f1.jpg"
+            />
+            <CardContent
+              sx={{
+                display: "flex",
+                flex: " 1 0 auto",
+                justifyContent: "center",
+                flexDirection: "column",
+              }}
+            >
+              <Typography gutterBottom variant="h5" component="div">
+                Buy 1 get 1
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Cras mattis consectetur purus sit amet fermentum. Cras justo
+                odio, dapibus ac facilisis in, egestas eget quam. Morbi leo
+                risus, porta ac consectetur ac, vestibulum at eros.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button
+                size="small"
+                variant="contained"
+                onClick={handleClickOpen}
+              >
+                Order
+              </Button>
+              <BootstrapDialog
+                onClose={handleClose}
+                aria-labelledby="customized-dialog-title"
+                open={open}
+              >
+                <BootstrapDialogTitle
+                  id="customized-dialog-title"
                   onClose={handleClose}
-                  aria-labelledby="customized-dialog-title"
-                  open={open}
                 >
-                  <BootstrapDialogTitle
-                    id="customized-dialog-title"
-                    onClose={handleClose}
-                  >
-                    Buy 1 Get 1 FREE!
-                  </BootstrapDialogTitle>
-                  <DialogContent dividers>
-                    <Typography gutterBottom>
-                      Cras mattis consectetur purus sit amet fermentum. Cras
-                      justo odio, dapibus ac facilisis in, egestas eget quam.
-                      Morbi leo risus, porta ac consectetur ac, vestibulum at
-                      eros.
-                    </Typography>
-                    <Typography gutterBottom>
-                      Praesent commodo cursus magna, vel scelerisque nisl
-                      consectetur et. Vivamus sagittis lacus vel augue laoreet
-                      rutrum faucibus dolor auctor.
-                    </Typography>
-                    <Typography gutterBottom>
-                      Aenean lacinia bibendum nulla sed consectetur. Praesent
-                      commodo cursus magna, vel scelerisque nisl consectetur et.
-                      Donec sed odio dui. Donec ullamcorper nulla non metus
-                      auctor fringilla.
-                    </Typography>
-                  </DialogContent>
-                  <DialogActions>
-                    <Button autoFocus onClick={handleClose}>
-                      Confirm Order
-                    </Button>
-                  </DialogActions>
-                </BootstrapDialog>
-                <Typography variant="subtitle1">Rs.2000.00</Typography>
-              </CardActions>
-            </Card>
-          </Item>
+                  Buy 1 Get 1 FREE!
+                </BootstrapDialogTitle>
+                <DialogContent dividers>
+                  <Typography gutterBottom>
+                    Cras mattis consectetur purus sit amet fermentum. Cras justo
+                    odio, dapibus ac facilisis in, egestas eget quam. Morbi leo
+                    risus, porta ac consectetur ac, vestibulum at eros.
+                  </Typography>
+                  <Typography gutterBottom>
+                    Praesent commodo cursus magna, vel scelerisque nisl
+                    consectetur et. Vivamus sagittis lacus vel augue laoreet
+                    rutrum faucibus dolor auctor.
+                  </Typography>
+                  <Typography gutterBottom>
+                    Aenean lacinia bibendum nulla sed consectetur. Praesent
+                    commodo cursus magna, vel scelerisque nisl consectetur et.
+                    Donec sed odio dui. Donec ullamcorper nulla non metus auctor
+                    fringilla.
+                  </Typography>
+                </DialogContent>
+                <DialogActions>
+                  <Button autoFocus variant="contained" onClick={handleClose}>
+                    Add to Cart
+                  </Button>
+                </DialogActions>
+              </BootstrapDialog>
+              <Typography inline variant="subtitle1" flexGrow="1" align="right">
+                Rs.2000.00
+              </Typography>
+            </CardActions>
+          </Card>
         </Grid>
         <Grid item xs={6}>
-          <Item>
-            {" "}
-            <Card sx={{ maxWidth: 380 }}>
-              <CardMedia
-                component="img"
-                alt="buy 1 get 1"
-                height="140"
-                image="/assets/f1.jpg"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Buy 1 get 1
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Buy one large pizza, another large pizza is free!
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small">Order</Button>
-                <Typography variant="subtitle1">Rs.2000.00</Typography>
-              </CardActions>
-            </Card>
-          </Item>
+          <Card
+            sx={{
+              maxWidth: 380,
+              minHeight: 340,
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <CardMedia
+              component="img"
+              alt="buy 1 get 1"
+              height="140"
+              image="/assets/f1.jpg"
+            />
+            <CardContent
+              sx={{
+                display: "flex",
+                flex: " 1 0 auto",
+                justifyContent: "center",
+                flexDirection: "column",
+              }}
+            >
+              <Typography gutterBottom variant="h5" component="div">
+                Buy 1 get 1
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Buy one large pizza, another large pizza is free!
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button
+                size="small"
+                variant="contained"
+                sx={{ display: "flex", justifyContent: "flex-start" }}
+              >
+                Order
+              </Button>
+              <Typography variant="subtitle1" flexGrow="1" align="right">
+                Rs.2000.00
+              </Typography>
+            </CardActions>
+          </Card>
         </Grid>
         <Grid item xs={6}>
-          <Item>
-            <Card sx={{ maxWidth: 380 }}>
-              <CardMedia
-                component="img"
-                alt="buy 1 get 1"
-                height="140"
-                image="/assets/f1.jpg"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Buy 1 get 1
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Buy one large pizza, another large pizza is free!
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small"> Order</Button>
-                <Typography variant="subtitle1">Rs.2000.00</Typography>
-              </CardActions>
-            </Card>
-          </Item>
+          <Card
+            sx={{
+              maxWidth: 380,
+              minHeight: 340,
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <CardMedia
+              component="img"
+              alt="buy 1 get 1"
+              height="140"
+              image="/assets/f1.jpg"
+            />
+            <CardContent
+              sx={{
+                display: "flex",
+                flex: " 1 0 auto",
+                justifyContent: "center",
+                flexDirection: "column",
+              }}
+            >
+              <Typography gutterBottom variant="h5" component="div">
+                Buy 1 get 1
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Buy one large pizza, another large pizza is free!
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button
+                size="small"
+                variant="contained"
+                sx={{ display: "flex", justifyContent: "flex-end" }}
+              >
+                {" "}
+                Order
+              </Button>
+              <Typography variant="subtitle1" flexGrow="1" align="right">
+                Rs.2000.00
+              </Typography>
+            </CardActions>
+          </Card>
         </Grid>
         <Grid item xs={6}>
-          <Item>
-            <Card sx={{ maxWidth: 380 }}>
-              <CardMedia
-                component="img"
-                alt="buy 1 get 1"
-                height="140"
-                image="/assets/f1.jpg"
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  Buy 1 get 1
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  Buy one large pizza, another large pizza is free!
-                </Typography>
-              </CardContent>
-              <CardActions>
-                <Button size="small">Order</Button>
-                <Typography variant="subtitle1">Rs.2000.00</Typography>
-              </CardActions>
-            </Card>
-          </Item>
+          <Card
+            sx={{
+              maxWidth: 380,
+              minHeight: 340,
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <CardMedia
+              component="img"
+              alt="buy 1 get 1"
+              height="140"
+              image="/assets/f1.jpg"
+            />
+            <CardContent
+              sx={{
+                display: "flex",
+                flex: " 1 0 auto",
+                justifyContent: "center",
+                flexDirection: "column",
+              }}
+            >
+              <Typography gutterBottom variant="h5" component="div">
+                Buy 1 get 1
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                Buy one large pizza, another large pizza is free!
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button
+                size="small"
+                variant="contained"
+                sx={{ display: "flex", justifyContent: "flex-end" }}
+              >
+                Order
+              </Button>
+              <Typography variant="subtitle1" flexGrow="1" align="right">
+                Rs.2000.00
+              </Typography>
+            </CardActions>
+          </Card>
         </Grid>
       </Grid>
     </Box>

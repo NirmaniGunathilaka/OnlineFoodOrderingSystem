@@ -11,7 +11,6 @@ import Menu from "@mui/material/Menu";
 import history from "./history";
 import { createTheme } from "@material-ui/core/styles";
 
-
 export default function Appbar() {
   const theme = createTheme({
     palette: {
@@ -25,10 +24,8 @@ export default function Appbar() {
     fontFamily: "font", // as an aside, highly recommend importing roboto font for Material UI projects! Looks really nice
   });
 
-  
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
-
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -43,7 +40,7 @@ export default function Appbar() {
   };
 
   return (
-    <Box sx={{ flexGrow: 1 }}>  
+    <Box sx={{ flexGrow: 2 }}>
       <AppBar
         position="sticky"
         theme={theme}
@@ -70,12 +67,15 @@ export default function Appbar() {
             onClick={() => handleClick("/customer/dashboard")}
           >
             Menu
-          </IconButton >
-          <IconButton color="inherit" onClick={() => handleClick("/signinsignup")}>
+          </IconButton>
+          <IconButton
+            color="inherit"
+            onClick={() => handleClick("/signinsignup")}
+          >
             Login
           </IconButton>
           <IconButton color="inherit" onClick={() => handleClick("/hotline")}>
-            Contact 
+            Contact
           </IconButton>
           {auth && (
             <div>
@@ -104,7 +104,12 @@ export default function Appbar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>My Profile</MenuItem>
+                <MenuItem
+                  onClick={handleClose}
+                  onClick={() => handleClick("/profile")}
+                >
+                  My Profile
+                </MenuItem>
                 <MenuItem onClick={handleClose}>Logout</MenuItem>
               </Menu>
             </div>

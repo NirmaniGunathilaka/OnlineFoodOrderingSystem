@@ -6,6 +6,8 @@ import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Login from "../components/login";
 import Signup from "../components/signup";
+import { makeStyles } from "@material-ui/core";
+import { createTheme, MuiThemeProvider } from "@material-ui/core/styles";
 
 const SignInOutContainer = () => {
   const [value, setValue] = useState(0);
