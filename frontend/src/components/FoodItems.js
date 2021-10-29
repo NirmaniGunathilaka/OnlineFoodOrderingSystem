@@ -19,6 +19,8 @@ import { Grid } from '@material-ui/core';
 import "../styles.css";
 import { makeStyles } from "@material-ui/core/styles";
 import { Link } from 'react-router-dom';
+import { Switch, Route, Redirect } from "react-router-dom";
+import Pizza from "./pizza";
 
 import history from "./history";
 
@@ -28,6 +30,15 @@ const useStyles = makeStyles({
         paddingRight: "40px"
     }
 });
+
+const handleButtonClick = () => {
+    <Route
+        path='/pizza'
+        component={Pizza}
+        // key={key}
+        // layout="/customer"
+    />
+}
 
 export default function FoodItems() {
     const classes = useStyles();
@@ -39,14 +50,14 @@ export default function FoodItems() {
             justify="center"
         >
             <Grid item xs={12} sm={6} md={4} item style={{ display: 'flex' }}>
-                <Card sx={{ maxWidth: 345 }} style={{ display: 'flex', justifyContent: 'space-between', flexDirection: 'column' }}>
+                <Card sx={{ maxWidth: 345, display: 'flex', flexDirection: 'column' }}>
                     <CardMedia
                         component="img"
                         height="140"
                         image="/images/Piz.jpg"
                         alt="pizza"
                     />
-                    <CardContent>
+                    <CardContent sx={{ flexGrow: 2 }}>
                         <Typography gutterBottom variant="h5" component="div">
                             Pizza
                         </Typography>
@@ -62,14 +73,14 @@ export default function FoodItems() {
 
             </Grid>
             <Grid item xs={12} sm={6} md={4} item style={{ display: 'flex' }}>
-                <Card sx={{ maxWidth: 345 }} >
+                <Card sx={{ maxWidth: 345, display: 'flex', flexDirection: 'column' }} >
                     <CardMedia
                         component="img"
                         height="140"
                         image="/images/pasta.jpg"
                         alt="Pasta"
                     />
-                    <CardContent>
+                    <CardContent sx={{ flexGrow: 2 }}>
                         <Typography gutterBottom variant="h5" component="div">
                             Pasta
                         </Typography>
@@ -77,7 +88,7 @@ export default function FoodItems() {
                             Simple, classic pasta recipes are always a crowd pleaser and naturally budget friendly
                         </Typography>
                     </CardContent>
-                    <CardActions style={{ justifyContent: 'center', align: 'center', display: 'flex', alignSelf: 'flex-end' }}>
+                    <CardActions style={{ justifyContent: 'center'}}>
                         <Button align="center" size="small">View Catalog</Button>
 
                     </CardActions>
@@ -85,14 +96,14 @@ export default function FoodItems() {
 
             </Grid>
             <Grid item xs={12} sm={6} md={4} item style={{ display: 'flex' }}>
-                <Card sx={{ maxWidth: 345 }}>
+                <Card sx={{ maxWidth: 345, display: 'flex', flexDirection: 'column'}}>
                     <CardMedia
                         component="img"
                         height="140"
                         image="/images/burger.jpg"
                         alt="Burger"
                     />
-                    <CardContent>
+                    <CardContent sx={{ flexGrow: 2 }}>
                         <Typography gutterBottom variant="h5" component="div">
                             Burger
                         </Typography>
@@ -131,14 +142,14 @@ export default function FoodItems() {
 
             </Grid>
             <Grid item xs={12} sm={6} md={4} item style={{ display: 'flex' }}>
-                <Card sx={{ maxWidth: 345 }}>
+                <Card sx={{ maxWidth: 345, display: 'flex', flexDirection: 'column'}}>
                     <CardMedia
                         component="img"
                         height="140"
                         image="/images/noodles.jpg"
                         alt="noodles"
                     />
-                    <CardContent>
+                    <CardContent sx={{flexGrow: 2}}>
                         <Typography gutterBottom variant="h5" component="div">
                             Noodles
                         </Typography>
@@ -155,14 +166,14 @@ export default function FoodItems() {
             </Grid>
             <Grid item xs={12} sm={6} md={4} item style={{ display: 'flex' }}>
 
-                <Card sx={{ maxWidth: 345 }}>
+                <Card sx={{ maxWidth: 345, display: 'flex', flexDirection: 'column' }}>
                     <CardMedia
                         component="img"
                         height="140"
                         image="/images/rice.jpg"
                         alt="rice"
                     />
-                    <CardContent>
+                    <CardContent sx={{flexGrow: 2}}>
                         <Typography gutterBottom variant="h5" component="div">
                             Rice
                         </Typography>
@@ -172,11 +183,8 @@ export default function FoodItems() {
                     </CardContent>
                     <CardActions style={{ justifyContent: 'center' }} >
                         <Button onClick={() => history.push("/pizza")} align="center" size="small">view catalog</Button>
-
                     </CardActions>
                 </Card>
-
-
             </Grid >
 
         </Grid >
