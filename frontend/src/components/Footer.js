@@ -11,6 +11,8 @@ export default function Footer() {
         py={{ xs: 5, sm: 10 }}
         bgcolor="text.primary"
         color="yellow"
+        padding= "10px"
+  height50="px"
       >
         <Container maxWidth="lg">
           <Grid container spacing={5}>

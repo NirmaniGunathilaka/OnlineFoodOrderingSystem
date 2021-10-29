@@ -5,8 +5,8 @@ import FoodItems from "./FoodItems";
 import Cart from "./Cart";
 
 import Dashboard from "@material-ui/icons/Dashboard";
-import FoodIcon from '@mui/icons-material/Fastfood';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import FoodIcon from "@mui/icons-material/Fastfood";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { makeStyles } from "@material-ui/core/styles";
 import { Switch, Route, Redirect } from "react-router-dom";
 import sidebarImage from "../assets/img/f1.jpg";

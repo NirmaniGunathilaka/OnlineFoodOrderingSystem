@@ -1,21 +1,29 @@
 import * as React from "react";
-import { Grid, Paper, Avatar, Typography } from "@material-ui/core";
+import { Grid, Avatar, Typography } from "@material-ui/core";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
+import Box from "@mui/material/Box";
 
 const message = `0113900234`;
 const message1 = `0115673800`;
 export default function About() {
-  const paperStyle = {
-    padding: 10,
-    height: "90vh",
-    width: 700,
-    margin: "0px auto",
-  };
   const avatarStyle = { backgroundColor: "#c94c4c" };
+
+  const style = {
+    position: "sticky",
+    padding: 10,
+    height: "70vh",
+    width: 400,
+    bgcolor: "background.paper",
+
+    boxShadow: 24,
+    p: 4,
+
+    margin: "30px auto",
+  };
 
   return (
     <Grid align="left">
-      <Paper style={paperStyle}>
+      <Box sx={style}>
         <Grid align="center">
           <Avatar style={avatarStyle}>
             <LocalPhoneIcon />
@@ -42,7 +50,7 @@ export default function About() {
             </Typography>
           </Grid>
         </Grid>
-      </Paper>
+      </Box>
     </Grid>
   );
 }

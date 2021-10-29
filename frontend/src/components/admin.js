@@ -5,8 +5,8 @@ import FoodItems from "./FoodItems";
 import Customers from "./CustomerList";
 
 import Dashboard from "@material-ui/icons/Dashboard";
-import FoodIcon from '@mui/icons-material/Fastfood';
-import GroupIcon from '@mui/icons-material/Group';
+import FoodIcon from "@mui/icons-material/Fastfood";
+import GroupIcon from "@mui/icons-material/Group";
 import { makeStyles } from "@material-ui/core/styles";
 import { Switch, Route, Redirect } from "react-router-dom";
 import sidebarImage from "../assets/img/f1.jpg";
@@ -33,7 +33,7 @@ const dashboardRoutes = [
     component: Customers,
     layout: "/admin",
   },
-]
+];
 
 const switchRoutes = (
   <Switch>
@@ -53,6 +53,7 @@ const switchRoutes = (
   </Switch>
 );
 
+// const styles = {
 const drawerWidth = 260;
 const styles = (theme) => ({
   wrapper: {
@@ -91,7 +92,6 @@ const styles = (theme) => ({
 const useStyles = makeStyles(styles);
 
 function Admin(...rest) {
-
   const classes = useStyles();
   const [color, setColor] = React.useState("blue");
   const [mobileOpen, setMobileOpen] = React.useState(false);
