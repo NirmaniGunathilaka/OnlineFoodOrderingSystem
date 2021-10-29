@@ -118,10 +118,10 @@ export default function CustomerList() {
 
   const requestSearch = (searchedVal) => {
     const filteredRows = originalRows.filter((row) => {
-      var result = row.name.toLowerCase().includes(searchedVal.toLowerCase()) ||
-        row.email.toLowerCase().includes(searchedVal.toLowerCase()) ||
-        row.address.toLowerCase().includes(searchedVal.toLowerCase()) ||
-        row.contactNo.toLowerCase().includes(searchedVal.toLowerCase());
+      var result = row.name.toLowerCase().includes(searchedVal.toLowerCase())||
+               row.email.toLowerCase().includes(searchedVal.toLowerCase())||
+               row.address.toLowerCase().includes(searchedVal.toLowerCase())||            
+               row.contactNo.toLowerCase().includes(searchedVal.toLowerCase());
       return result;
     });
     setRows(filteredRows);
@@ -145,71 +145,71 @@ export default function CustomerList() {
   };
   return (
     <>
-      <SearchBar
-        autofocus
-        placeholder='Search Customers'
-        style={{ maxWidth: 300, marginLeft: '60%', marginBottom: '30px' }}
-        value={searched}
-        onChange={(searchVal) => requestSearch(searchVal)}
-        onCancelSearch={() => cancelSearch()}
-      />
-      <TableContainer component={Paper} sx={{ maxWidth: "80%", margin: "auto" }}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
-            <TableRow>
-              <StyledTableCell>Id</StyledTableCell>
-              <StyledTableCell align="left">Name</StyledTableCell>
-              <StyledTableCell align="left">Email</StyledTableCell>
-              <StyledTableCell align="left">Address</StyledTableCell>
-              <StyledTableCell align="left">Contact No.</StyledTableCell>
+    <SearchBar
+    autofocus
+    placeholder='Search Customers'
+    style={{maxWidth: 300, marginLeft: '60%', marginBottom: '30px'}}
+    value={searched}
+    onChange={(searchVal) => requestSearch(searchVal)}
+    onCancelSearch={() => cancelSearch()}
+  />
+    <TableContainer component={Paper} sx={{maxWidth: "80%", margin: "auto"}}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <StyledTableCell>Id</StyledTableCell>
+            <StyledTableCell align="left">Name</StyledTableCell>
+            <StyledTableCell align="left">Email</StyledTableCell>
+            <StyledTableCell align="left">Address</StyledTableCell>
+            <StyledTableCell align="left">Contact No.</StyledTableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {(rowsPerPage > 0
+            ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            : rows
+          ).map((row) => (
+            <StyledTableRow
+              key={row.id}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <StyledTableCell component="th" scope="row">
+                {row.id}
+              </StyledTableCell>
+              <StyledTableCell align="left">{row.name}</StyledTableCell>
+              <StyledTableCell align="left">{row.email}</StyledTableCell>
+              <StyledTableCell align="left">{row.address}</StyledTableCell>
+              <StyledTableCell align="left">{row.contactNo}</StyledTableCell>
+            </StyledTableRow>
+          ))}
+          {emptyRows > 0 && (
+            <TableRow style={{ height: 53 * emptyRows }}>
+              <TableCell colSpan={6} />
             </TableRow>
-          </TableHead>
-          <TableBody>
-            {(rowsPerPage > 0
-              ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              : rows
-            ).map((row) => (
-              <StyledTableRow
-                key={row.id}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-              >
-                <StyledTableCell component="th" scope="row">
-                  {row.id}
-                </StyledTableCell>
-                <StyledTableCell align="left">{row.name}</StyledTableCell>
-                <StyledTableCell align="left">{row.email}</StyledTableCell>
-                <StyledTableCell align="left">{row.address}</StyledTableCell>
-                <StyledTableCell align="left">{row.contactNo}</StyledTableCell>
-              </StyledTableRow>
-            ))}
-            {emptyRows > 0 && (
-              <TableRow style={{ height: 53 * emptyRows }}>
-                <TableCell colSpan={6} />
-              </TableRow>
-            )}
-          </TableBody>
-          <TableFooter>
-            <TableRow>
-              <TablePagination
-                rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-                colSpan={5}
-                count={rows.length}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                SelectProps={{
-                  inputProps: {
-                    'aria-label': 'rows per page',
-                  },
-                  native: true,
-                }}
-                onPageChange={handleChangePage}
-                onRowsPerPageChange={handleChangeRowsPerPage}
-                ActionsComponent={TablePaginationActions}
-              />
-            </TableRow>
-          </TableFooter>
-        </Table>
-      </TableContainer>
+          )}
+        </TableBody>
+        <TableFooter>
+          <TableRow>
+            <TablePagination
+              rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+              colSpan={5}
+              count={rows.length}
+              rowsPerPage={rowsPerPage}
+              page={page}
+              SelectProps={{
+                inputProps: {
+                  'aria-label': 'rows per page',
+                },
+                native: true,
+              }}
+              onPageChange={handleChangePage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+              ActionsComponent={TablePaginationActions}
+            />
+          </TableRow>
+        </TableFooter>
+      </Table>
+    </TableContainer>
     </>
   );
 }

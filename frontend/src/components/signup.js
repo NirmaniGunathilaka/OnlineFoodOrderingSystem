@@ -21,6 +21,7 @@ const Signup = () => {
   const avatarStyle = { backgroundColor: "#36c967" };
   const typoStyle = { fontSize: 13 };
   const marginTop = { marginTop: 10 };
+
   return (
     <Grid align="left">
       <Paper style={paperStyle}>

@@ -1,22 +1,29 @@
 import * as React from "react";
-import { Grid, Paper, Avatar, Typography } from "@material-ui/core";
+import { Grid, Avatar, Typography } from "@material-ui/core";
 import PrivacyTipIcon from "@mui/icons-material/PrivacyTip";
+import Box from "@mui/material/Box";
 
 const message1 = "THIS PRIVACY POLICY APPLIES TO THE WEBSITE www.foodiehub.lk";
 const message2 = `Company May Use Your Personal Information For Any Of The Following Purposes:`;
 
 export default function Privacy() {
-  const paperStyle = {
-    padding: 10,
-    height: "90vh",
-    width: 700,
-    margin: "0px auto",
-  };
   const avatarStyle = { backgroundColor: "#82b74b" };
+  const style = {
+    position: "sticky",
+    padding: 10,
+    height: "80vh",
+    width: 550,
+    bgcolor: "background.paper",
+
+    boxShadow: 24,
+    p: 4,
+
+    margin: "30px auto",
+  };
 
   return (
     <Grid align="left">
-      <Paper style={paperStyle}>
+      <Box sx={style}>
         <Grid align="center">
           <Avatar style={avatarStyle}>
             <PrivacyTipIcon />
@@ -43,7 +50,7 @@ export default function Privacy() {
             </Typography>
           </Grid>
         </Grid>
-      </Paper>
+      </Box>
     </Grid>
   );
 }

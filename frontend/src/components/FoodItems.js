@@ -24,6 +24,8 @@ import Box from '@material-ui/core/Box';
 import Popup from "./Popup";
 import ItemForm from "./ItemForm";
 
+import { Switch, Route, Redirect } from "react-router-dom";
+import Pizza from "./pizza";
 
 import history from "./history";
 
@@ -34,13 +36,22 @@ const useStyles = makeStyles({
     }
 });
 
+const handleButtonClick = () => {
+    <Route
+        path='/pizza'
+        component={Pizza}
+    // key={key}
+    // layout="/customer"
+    />
+}
+
 export default function FoodItems() {
     const [openPopup, setOpenPopup] = useState(false)
     const [recordForEdit, setRecordForEdit] = useState(null)
     const classes = useStyles();
     return (
         <Grid>
-            <Box m={2} pb={3}>
+            <Box mt={-7} pb={3} >
                 <Button variant="contained" style={{ backgroundColor: '#f58311' }} onClick={() => { setOpenPopup(true); setRecordForEdit(null); }}>Add New Item</Button>
 
             </Box>
@@ -48,7 +59,7 @@ export default function FoodItems() {
                 title="Employee Form"
                 openPopup={openPopup}
                 setOpenPopup={setOpenPopup}>
-                    <ItemForm/>
+                <ItemForm />
             </Popup>
             <Grid
                 container
