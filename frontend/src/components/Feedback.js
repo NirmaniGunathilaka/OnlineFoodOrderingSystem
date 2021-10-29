@@ -58,7 +58,7 @@ export default function Feedback() {
             </Avatar>
             <h2>Feedback !</h2>
           </Grid>
-          <FormControl fullWidth>
+          {/* <FormControl fullWidth>
             <InputLabel id="feedbackType">Feedback Type</InputLabel>
             <Select
               labelId="feedbackType"
@@ -76,7 +76,7 @@ export default function Feedback() {
               <MenuItem value={30}>Appreciation</MenuItem>
               <MenuItem value={40}>Complaint</MenuItem>
             </Select>
-          </FormControl>
+          </FormControl> */}
           <TextField
             id="username"
             label="username"
