@@ -7,7 +7,8 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 
 @SpringBootApplication
 @EnableMongoRepositories
-public class BackendApplication{
+public class BackendApplication {
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(BackendApplication.class, args);

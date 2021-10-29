@@ -3,7 +3,6 @@ import Sidebar from "./sidebar";
 import Deals from "./Deals";
 import FoodItems from "./FoodItems";
 import Cart from "./Cart";
-//import pizza from "./Pizza"
 
 import Dashboard from "@material-ui/icons/Dashboard";
 import FoodIcon from "@mui/icons-material/Fastfood";
@@ -19,16 +18,6 @@ const dashboardRoutes = [
     icon: FoodIcon,
     component: FoodItems,
     layout: "/customer",
-    items: [
-      {
-        title: "Pizza",
-      },
-
-      {
-        title: "Burger",
-      },
-    ]
-
   },
   {
     path: "/deals",
@@ -44,7 +33,6 @@ const dashboardRoutes = [
     component: Cart,
     layout: "/customer",
   },
- 
 ]
 
 const switchRoutes = (
@@ -64,8 +52,25 @@ const switchRoutes = (
     <Redirect from="/customer" to="/customer/dashboard" />
   </Switch>
 );
-
-const styles = {
+const drawerWidth = 260;
+const styles = (theme) => ({
+  wrapper: {
+    position: "relative",
+    top: "0",
+    height: "100vh",
+  },
+  mainPanel: {
+    [theme.breakpoints.up("md")]: {
+      width: `calc(100% - ${drawerWidth}px)`,
+    },
+    overflow: "auto",
+    position: "relative",
+    float: "right",
+    transition: "all 0.33s cubic-bezier(0.685, 0.0473, 0.346, 1)",
+    maxHeight: "100%",
+    width: "100%",
+    overflowScrolling: "touch",
+  },
   content: {
     marginTop: "70px",
     padding: "30px 15px",
@@ -74,13 +79,13 @@ const styles = {
   container: {
     paddingRight: "15px",
     paddingLeft: "15px",
-    marginRight: "30px",
-    marginLeft: "300px",
+    marginRight: "auto",
+    marginLeft: "auto",
   },
   map: {
     marginTop: "70px",
   },
-}
+});
 
 const useStyles = makeStyles(styles);
 
@@ -98,7 +103,7 @@ function Customer(...rest) {
   };
 
   return (
-    <div>
+    <div className={classes.wrapper}>
       <Sidebar
         routes={dashboardRoutes}
         sidebarImage={sidebarImage}
@@ -107,6 +112,7 @@ function Customer(...rest) {
         color={color}
         {...rest}
       />
+      <div className={classes.mainPanel}>
       {getRoute() ? (
         <div className={classes.content}>
           <div className={classes.container}>{switchRoutes}</div>
@@ -115,6 +121,7 @@ function Customer(...rest) {
         <div className={classes.map}>{switchRoutes}</div>
       )}
     </div>
+  </div>
   );
 }
 export default Customer;
