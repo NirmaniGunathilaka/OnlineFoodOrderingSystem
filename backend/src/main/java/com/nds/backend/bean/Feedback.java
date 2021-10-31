@@ -9,17 +9,20 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+
 @Getter
 @Setter
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "deal")
-public class Deal {
+@ToString
+@Document(collection = "feedback")
+public class Feedback {
 
 	@Id
 	private long id;
-	private String deal_name;
-	private float discount;
-
+	private String name;
+	private String email;
+	private String contact_number;
+	private String message;
+	
 }
