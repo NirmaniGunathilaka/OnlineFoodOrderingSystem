@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,13 +36,18 @@ public class FoodItemController {
 	public Optional<FoodItem> getFoodItemById(@PathVariable int id){
 		return foodItemService.getItemById(id);
 	}
+	
 	@DeleteMapping("/deleteItem/{id}")
 	public String deleteItemById(@PathVariable int id) {
 		foodItemService.deleteItem(id);
 		return "Deleted successfully";
 	}
 	
-	
+	@PutMapping("/updateItem")
+	public String updateItem(@RequestBody FoodItem foodItem) {
+		foodItemService.updateItem(foodItem);
+		return "Successfully updated";
+	}
 	
 
 }

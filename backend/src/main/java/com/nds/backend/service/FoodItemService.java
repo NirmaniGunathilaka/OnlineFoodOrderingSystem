@@ -27,5 +27,8 @@ public class FoodItemService {
 	public void deleteItem(int id) {
 		foodItemrepo.deleteById(id);
 	}
+	public void updateItem(FoodItem foodItem) {
+		foodItemrepo.save(foodItem);
+	}
 	
 }
