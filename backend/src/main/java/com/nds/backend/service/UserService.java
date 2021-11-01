@@ -14,7 +14,16 @@ public class UserService {
 	
 	@Autowired
 	UserRepository repo;
+	
 
+	public void addUser(User user) {
+		repo.save(user);
+	}
+
+	public void updateUser(User updateUser) {
+		repo.save(updateUser);
+	}
+	
 	public List<User> getUsers() {
 		return repo.findAll();
 	}
