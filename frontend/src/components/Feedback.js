@@ -1,38 +1,46 @@
 import * as React from "react";
-import {
-  Grid,
-  Avatar,
-  TextField,
-  Button,
-  FormControl,
-  InputLabel,
-} from "@material-ui/core";
+import { Grid, Avatar, TextField, Button } from "@material-ui/core";
 import FeedbackIcon from "@mui/icons-material/Feedback";
-import MenuItem from "@mui/material/MenuItem";
 import { useFormik } from "formik";
 import Box from "@mui/material/Box";
-import Select from "@mui/material/Select";
+import axios from "axios";
+import * as Yup from "yup";
+
+const baseURL = "http://localhost:8090/feed/insertFeedback";
 
 export default function Feedback() {
+  const [post, setPost] = React.useState(null);
+  const phoneRegExp = /^[+]?(?:[0-9]{2})?[0-9]{10}$/;
+
   const formik = useFormik({
     initialValues: {
-      feedbackType: "",
-      username: "",
+      name: "",
       email: "",
-      contactNo: "",
+      contact_number: "",
       message: "",
     },
+    validationSchema: Yup.object({
+      name: Yup.string()
+        .max(20, "Must be 20 characters or less")
+        .required("Required"),
+      email: Yup.string().email("Invalid email address").required("Required"),
+      contact_number: Yup.string()
+        .matches(phoneRegExp, "Phone number is not valid")
+        .notRequired(" Not Required"),
+      message: Yup.string()
+        .max(50, "Must be 50 characters or less")
+        .required("Required"),
+    }),
 
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+    onSubmit: async (values, { resetForm }) => {
+      axios.post(baseURL, values).then((response) => {
+        setPost(response.data);
+        console.log(response.data);
+      });
+      alert(JSON.stringify("Successfully submitted your feedback !", null, 2));
+      resetForm();
     },
   });
-
-  const [feedbackType, setFeedbacktype] = React.useState("");
-  const handleSelect = (event) => {
-    console.log(event.target.value);
-    setFeedbacktype(event.target.value);
-  };
 
   const style = {
     position: "sticky",
@@ -58,35 +66,19 @@ export default function Feedback() {
             </Avatar>
             <h2>Feedback !</h2>
           </Grid>
-          {/* <FormControl fullWidth>
-            <InputLabel id="feedbackType">Feedback Type</InputLabel>
-            <Select
-              labelId="feedbackType"
-              id="feedbackType"
-              label="feedbackType"
-              onChange={handleSelect}
-              value={feedbackType}
-              size="small"
-            >
-              <MenuItem value="">
-                <em>None</em>
-              </MenuItem>
-              <MenuItem value={10}>Contact</MenuItem>
-              <MenuItem value={20}>Order Inquiry</MenuItem>
-              <MenuItem value={30}>Appreciation</MenuItem>
-              <MenuItem value={40}>Complaint</MenuItem>
-            </Select>
-          </FormControl> */}
           <TextField
-            id="username"
-            label="username"
-            placeholder="Enter username"
+            id="name"
+            label="name"
+            placeholder="Enter name"
             fullWidth
             required
             size="small"
             onChange={formik.handleChange}
-            value={formik.values.username}
+            value={formik.values.name}
           />
+          {formik.touched.name && formik.errors.name ? (
+            <div>{formik.errors.name}</div>
+          ) : null}
 
           <TextField
             id="email"
@@ -97,17 +89,23 @@ export default function Feedback() {
             onChange={formik.handleChange}
             value={formik.values.email}
           />
+          {formik.touched.email && formik.errors.email ? (
+            <div>{formik.errors.email}</div>
+          ) : null}
 
           <TextField
-            id="contactNo"
+            id="contact_number"
             label="contactNo"
             placeholder="Enter contact no"
             fullWidth
-            required
             size="small"
             onChange={formik.handleChange}
-            value={formik.values.contactNo}
+            value={formik.values.contact_number}
           />
+          {formik.touched.contact_number && formik.errors.contact_number ? (
+            <div>{formik.errors.contact_number}</div>
+          ) : null}
+
           <TextField
             id="message"
             label="message"
