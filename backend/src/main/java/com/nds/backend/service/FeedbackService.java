@@ -11,10 +11,15 @@ import com.nds.backend.repository.FeedbackRepository;
 public class FeedbackService {
 
 	
+	
 	@Autowired
-	FeedbackRepository repo;
+	private FeedbackRepository repo;
+	
+	@Autowired
+	private SequenceGeneratorService sequenceGeneratorService;
 
 	public void insertFeedback(Feedback feedback) {
+		feedback.setId(sequenceGeneratorService.getSequenceNumber(Feedback.SEQUENCE_NAME));
 		repo.save(feedback);
 	}
 
